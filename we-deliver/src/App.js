@@ -1,6 +1,7 @@
 import './App.css';
 import React from "react";
 import Login from "./Login";
+import Home from "./Home";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import {
@@ -33,6 +34,7 @@ class App extends React.Component {
 							)
 						}}/>
 						<Route exact path="/login" component={Login}/>
+						<Route exact path="/home" component={Home}/>
 					</Switch>
 
 				  </header>

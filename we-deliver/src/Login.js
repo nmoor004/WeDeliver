@@ -2,6 +2,15 @@ import React, { Component } from "react";
 import {Button as Button, Form, Col, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './WeDeliverLogo_Transparent.png';
+import Home from './Home';
+
+import {
+	Route,
+	Switch,
+	Link,
+	Redirect,
+	BrowserRouter as Router
+} from "react-router-dom";
 
 class Login extends Component { 
 	constructor(props, context) {
@@ -10,6 +19,7 @@ class Login extends Component {
 			username: "",
 			password: "",
 			isAuthentic: false,
+			render: false
 			
 		};
 		
@@ -64,11 +74,21 @@ class Login extends Component {
 			);
 		}
 		else if (isAuth == true) {
-			return (
-				<div>
-					<h1> You've logged in. </h1>
-				</div>
-			);
+
+			if (this.state.render == false) {
+				setTimeout(() => { this.setState({render: true}) }, 3000);
+				return (
+						<div>
+							<h1> You've logged in. </h1>
+						</div>
+				);
+				
+			}
+			else if (this.state.render == true) {
+				return (
+					<Redirect to="/home" />
+				);
+			}
 		}
 	}
 	
