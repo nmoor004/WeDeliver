@@ -1,8 +1,7 @@
-import './App.css';
 import React from "react";
-import Login from "./Login";
 import Home from "./Home";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import Login from "./Login";
+
 
 import {
 	Route,
@@ -25,7 +24,7 @@ class App extends React.Component {
 	  return (
 		  <Router>
 			<div style={{backgroundColor: "#ffffff"}} className="App">
-				<CssBaseline>
+
 				  <header className="App-header">
 					<Switch>
 						<Route exact path ="/" render= {() => {
@@ -38,7 +37,6 @@ class App extends React.Component {
 					</Switch>
 
 				  </header>
-				</CssBaseline>
 			</div>
 		  </Router>
 		);

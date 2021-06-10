@@ -3,7 +3,7 @@ import {Button as Button, Form, Col, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './WeDeliverLogo_Transparent.png';
 import Home from './Home';
-
+import styled from 'styled-components';
 import {
 	Route,
 	Switch,
@@ -11,6 +11,41 @@ import {
 	Redirect,
 	BrowserRouter as Router
 } from "react-router-dom";
+
+const Div = styled.div`
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+`;
+
+const Div3 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Img = styled.img`
+	  width: 20%;
+	  height: auto;
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+
+
+`
+
+const Div2 = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+`;
+
 
 class Login extends Component { 
 	constructor(props, context) {
@@ -40,11 +75,12 @@ class Login extends Component {
 		
 		if (isAuth == false) {
 			return (
-			<div style={{backgroundColor: "transparent"}}> 
-				<img src={logo} className="App-logo" alt="logo" />
-				<h1> WeDeliver </h1>
-				
-				<Form>
+			<Div> 
+				<Img src={logo} className="App-logo" alt="logo" />
+				<Div3>
+					<h1 style={{fontWeight: 'bold', fontSize: '250%', }}> WeDeliver </h1>
+				</Div3>
+				<Form style={{display: "flex", flex: 1, flexDirection:"column", alignItems:"center"}}>
 					<Form.Group as={Row} controlId="formUser">
 						<Form.Label> Username </Form.Label> 
 						<Form.Control 
@@ -56,6 +92,7 @@ class Login extends Component {
 					<Form.Group as={Row} controlId="formPassword">
 						<Form.Label> Password </Form.Label> 
 						<Form.Control 
+							type="password"
 							placeholder="Enter your password"
 							onChange={(e) => this.setState({ password: e.target.value })}
 						/>
@@ -63,6 +100,7 @@ class Login extends Component {
 							
 					<Button 
 						variant="primary"
+						style={{marginTop: "10px"}}
 						onClick={ () => this.checkDetails() }
 					>
 						Submit
@@ -70,7 +108,7 @@ class Login extends Component {
 				</Form>
 
 
-			</div>
+			</Div>
 			);
 		}
 		else if (isAuth == true) {
@@ -78,9 +116,9 @@ class Login extends Component {
 			if (this.state.render == false) {
 				setTimeout(() => { this.setState({render: true}) }, 3000);
 				return (
-						<div>
+						<Div2>
 							<h1> You've logged in. </h1>
-						</div>
+						</Div2>
 				);
 				
 			}
