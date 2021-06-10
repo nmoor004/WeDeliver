@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./Home";
 import Login from "./Login";
+import Delivery from "./Delivery";
 
 
 import {
@@ -34,6 +35,7 @@ class App extends React.Component {
 						}}/>
 						<Route exact path="/login" component={Login}/>
 						<Route exact path="/home" component={Home}/>
+						<Route exact path="/delivery" component={Delivery}/>
 					</Switch>
 
 				  </header>
